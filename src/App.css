@@ -45,6 +45,12 @@
   height: 50px;
   border-radius: 6px;
 }
+.customBtn {
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  height: 30px;
+}
 .Click {
   background-color: brown;
   color: white;
