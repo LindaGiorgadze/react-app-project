@@ -16,7 +16,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,9 +24,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.menu a{
+  color: white;
+}
 
 .App-link {
-  color: #61dafb;
+  color: #bfd0d5;
 }
 
 @keyframes App-logo-spin {
@@ -63,4 +66,14 @@
 }
 .completed {
   text-decoration: line-through;
+}
+.productsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.ProductBox {
+  background-color: antiquewhite;
+  color: #282c34;
+  border-radius: 6px;
 }

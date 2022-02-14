@@ -1,35 +1,26 @@
 import './App.css';
-// import { useState } from 'react';
-// import Counter from './components/Counter';
-// import Form from './components/Form';
-// import Header from './components/Header';
-import TodoApp from './components/TodoApp';
+import React from 'react';
+import Home from './components/Home';
+import Header from './components/Header';
+import About from './components/About';
+import { Routes, Route } from "react-router-dom";
+import Product from './components/Product';
+
 
 export default function App() {
-  // const [inputValue, setInputValue] = useState(0);
-  // const [startValue, setStartValue] = useState();
+
   
 
   return (
     <div className="App">
-      <TodoApp />
-      {/* <Header />
-      <Form /> */}
-      {/* <input 
-        type='number' 
-        placeholder='Type Number' 
-        value={inputValue}
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
-      />
-      <button onClick={()=> setStartValue(parseInt(inputValue))} >
-        Change start value
-      </button>
-      { startValue && <Counter start={startValue} increase={1} /> } */}
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="/:productId" element={<Product />} />
+      </Routes>
+
       
-      {/* <Counter  increase={5} />
-      <Counter start={300}  /> */}
     </div>
   );
 }
