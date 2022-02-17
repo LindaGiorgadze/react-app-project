@@ -1,6 +1,8 @@
+@import './sass/variables.scss';
+
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: $primary-color;
 }
 
 .App-logo {
@@ -76,4 +78,7 @@
   background-color: antiquewhite;
   color: #282c34;
   border-radius: 6px;
+}
+.App-header nav a {
+  color: black;
 }

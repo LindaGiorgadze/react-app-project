@@ -1,9 +1,12 @@
 // import logo from '../logo.svg';
 // import Button from './Button';
 
+import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom';
 
 export default function Header() {
+
+    const {t} = useTranslation();
 
     // function example() {
     // console.log('Image is Clicked');
@@ -45,13 +48,13 @@ export default function Header() {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/">{t('home')}</Link>
                     </li>
                     <li>
-                        <Link to="/about">About</Link>
+                        <Link to="/about">{t('about')}</Link>
                     </li>
                     <li>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/contact">{t('contact')}</Link>
                     </li>
                 </ul>
             </nav>
