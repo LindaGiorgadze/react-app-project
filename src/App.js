@@ -8,6 +8,8 @@ import { Routes, Route } from "react-router-dom";
 import Product from './components/Product';
 import i18n from "i18next";
 import { initReactI18next, useTranslation } from "react-i18next";
+import { Button } from 'react-bootstrap';
+import ThemeContext from './themeContext';
 
 const resources = {
   en: {
@@ -31,6 +33,10 @@ i18n
 
 
 export default function App() {
+
+  const [theme, setTheme] = useState('light');
+
+
   const {t} = useTranslation();
   
   function changeLanguage(language) {
@@ -46,25 +52,51 @@ export default function App() {
     }
     i18n.changeLanguage(lang);
   }
+
   
   return (
-    <div className="App">
-      <button onClick={()=> changeLanguage('ka')} >ქართული</button>
-      <button onClick={()=> changeLanguage('en')}>English</button>
-      <br/>
-      <button onClick={changeLanguageBetween}>Change Language</button>
-      <div className='testBackground'>
-        <h1> {t('Welcome to React')} </h1>
+    <ThemeContext.Provider value={
+      {
+        theme: theme,
+        setTheme: setTheme
+      }
+    }>
+      <div className="App container-xxl">
+        {/* <div className='TranslationDiv'>
+          <button onClick={()=> changeLanguage('ka')} >ქართული</button>
+          <button onClick={()=> changeLanguage('en')}>English</button>
+          <br/>
+          <button onClick={changeLanguageBetween}>Change Language</button>
+          <div className='testBackground'>
+            <h1> {t('Welcome to React')} </h1>
+          </div>
+        </div> */}
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="/:productId" element={<Product />} />
+        </Routes>
+        {/* <section className='GridSystemExample'>
+          <h3>Grid System Example</h3>
+          <div className='row'>
+            <div className='col colExample'> Col 1 </div>
+            <div className='col colExample'> Col 2 </div>
+            <div className='col-7 colExample'> Col 3 </div>
+          </div>
+          <div className="flexBox">
+            <div className="flexItem">
+              Flex Item
+            </div>
+          </div>
+        </section>
+        <section className='BootstrapComponents'>
+          <h3>Bootstrap Components</h3>
+          <Button variant='success' > Button </Button>
+        </section> */}
+        
       </div>
-      <Header/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="/:productId" element={<Product />} />
-      </Routes>
-
-      
-    </div>
+    </ThemeContext.Provider>
   );
 }
 

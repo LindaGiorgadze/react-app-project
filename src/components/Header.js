@@ -1,10 +1,14 @@
 // import logo from '../logo.svg';
 // import Button from './Button';
+import ThemeContext from '../themeContext';
 
 import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom';
+import { useContext } from 'react';
 
 export default function Header() {
+
+    const { theme, setTheme } = useContext(ThemeContext); 
 
     const {t} = useTranslation();
 
@@ -41,8 +45,20 @@ export default function Header() {
     'Contact'
     ];
 
+    function changeTheme() {
+        if (theme === 'light') {
+            setTheme('dark')
+        }else {
+            setTheme('light')
+        }
+    }
+
     return (
         <header className="App-header">
+            <span>{theme}</span>
+            <button onClick={changeTheme }>
+                Change Theme
+            </button>
             {/* <img src={logo} className="App-logo" alt="logo" onClick={example()} />
             <h1>{title}</h1> */}
             <nav>

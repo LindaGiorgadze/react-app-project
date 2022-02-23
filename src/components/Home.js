@@ -1,11 +1,14 @@
 import TodoApp from "./TodoApp";
 import Form from './Form';
 import Counter from './Counter';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import ThemeContext from "../themeContext";
 
 export default function Home() {
     const [data, setData] = useState([]);
+    const { theme, setTheme } = useContext(ThemeContext);
+    
 
     useEffect(() => {
         fetch('https://lindagiorgadze.github.io/FakeServer/products.json')
@@ -25,6 +28,8 @@ export default function Home() {
                             <Link key={product.id} to={`/${product.id}`}>
                                 <div className="ProductBox" >
                                     <h3>{product.title}</h3>
+                                    <span>{theme}</span>
+                                    <br/>
                                     <span>{product.Category}</span>
                                 </div>
                             </Link>
