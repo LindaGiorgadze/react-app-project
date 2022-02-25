@@ -10,6 +10,8 @@ import i18n from "i18next";
 import { initReactI18next, useTranslation } from "react-i18next";
 import { Button } from 'react-bootstrap';
 import ThemeContext from './themeContext';
+import Registration from './components/Registration';
+import CounterClass from './components/CounterClass';
 
 const resources = {
   en: {
@@ -72,8 +74,10 @@ export default function App() {
           </div>
         </div> */}
         <Header/>
+        <CounterClass/>
+        {/* <Registration/> */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="about" element={<About />} />
           <Route path="/:productId" element={<Product />} />
         </Routes>
