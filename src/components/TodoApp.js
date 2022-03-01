@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import Button from './Button';
+import Input from './Input';
 import TodoItem from './TodoItem';
 
 const _todoItems = [
@@ -44,12 +45,7 @@ export default function TodoApp() {
         <div className="TodoApp">
             <h3>Todo App</h3>
             <form onSubmit={addNewItem} >
-                <input 
-                    ref={inputRef}
-                    type='text' 
-                    value={value} 
-                    onChange={(e) => setValue(e.target.value)} 
-                />
+                <Input value={value} onChange={(e) => setValue(e.target.value)} ref={inputRef} />
                 <Button type='submit' text='Add Item' />
             </form>
             <ul>

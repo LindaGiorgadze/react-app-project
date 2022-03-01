@@ -21,7 +21,7 @@ export default function Home() {
     const [startValue, setStartValue] = useState();
     return (
         <div className="Home">
-            <div className="productsContainer">
+            {/* <div className="productsContainer">
                 {
                     data.map(product => {
                         return (
@@ -36,11 +36,11 @@ export default function Home() {
                         )
                     })
                 }
-            </div>
+            </div> */}
             <TodoApp/>
             
-            <Form />
-            <input 
+            {/* <Form /> */}
+            {/* <input 
                 type='number' 
                 placeholder='Type Number' 
                 value={inputValue}
@@ -50,7 +50,7 @@ export default function Home() {
             />
             <button onClick={()=> setStartValue(parseInt(inputValue))} >
                 Change start value
-            </button>
+            </button> */}
             {/* { startValue && <Counter start={startValue} increase={1} /> } */}
             
             {/* <Counter  increase={5} />
