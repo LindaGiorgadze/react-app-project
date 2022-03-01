@@ -74,10 +74,10 @@ export default function App() {
           </div>
         </div> */}
         <Header/>
-        <CounterClass/>
+        {/* <CounterClass start={1000} /> */}
         {/* <Registration/> */}
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="/:productId" element={<Product />} />
         </Routes>
