@@ -12,6 +12,7 @@ import { Button } from 'react-bootstrap';
 import ThemeContext from './themeContext';
 import Registration from './components/Registration';
 import CounterClass from './components/CounterClass';
+import ResolutionTest from './components/ResolutionTest';
 
 const resources = {
   en: {
@@ -74,10 +75,11 @@ export default function App() {
           </div>
         </div> */}
         <Header/>
+        <ResolutionTest/>
         {/* <CounterClass start={1000} /> */}
         {/* <Registration/> */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="about" element={<About />} />
           <Route path="/:productId" element={<Product />} />
         </Routes>

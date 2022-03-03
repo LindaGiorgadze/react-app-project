@@ -40,7 +40,6 @@ export default function TodoApp() {
       inputRef.current.focus();
     }, []);
     
-
     return (
         <div className="TodoApp">
             <h3>Todo App</h3>
