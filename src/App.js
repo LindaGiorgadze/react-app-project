@@ -74,12 +74,12 @@ export default function App() {
             <h1> {t('Welcome to React')} </h1>
           </div>
         </div> */}
-        <Header/>
-        <ResolutionTest/>
+        {/* <Header/> */}
+        {/* <ResolutionTest/> */}
         {/* <CounterClass start={1000} /> */}
         {/* <Registration/> */}
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="/:productId" element={<Product />} />
         </Routes>

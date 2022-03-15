@@ -2,5 +2,6 @@
     "Welcome to React": "კეთილი იყოს თქვენი მობრძანება რეაქთში",
     "home": "მთავარი",
     "about": "ჩვენ შესახებ",
-    "contact": "კონტაქტი"
+    "contact": "კონტაქტი",
+    "link": "Lorem ipsum dolor <a href='/test'>Link</a> sit amet consectetur adipisicing elit. Eius nulla nesciunt possimus! Ea adipisci quod quaerat sint qui molestias quae! Nostrum possimus nemo vel fuga nisi incidunt est. Facere, obcaecati!"
 }

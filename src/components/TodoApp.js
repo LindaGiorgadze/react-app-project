@@ -2,29 +2,36 @@ import { useState, useRef, useEffect } from 'react';
 import Button from './Button';
 import Input from './Input';
 import TodoItem from './TodoItem';
+import apiRequest from '../apiRequest';
+import useRequest from '../hooks/useRequest';
 
-const _todoItems = [
-    {id: 1, text: 'Text1', completed: true},
-    {id: 2, text: 'Text2', completed: false},
-    {id: 3, text: 'Text3', completed: true},
-    {id: 4, text: 'Text4', completed: false}
-];
 
 export default function TodoApp() {
     const [value, setValue] = useState('');
-    const [todoItems, setTodoItems] = useState(_todoItems);
+    const [todoItems, setTodoItems] = useState([]);
     const inputRef = useRef();
-    // console.log(inputRef.current);
     
+    const data =  useRequest('GET', 'tasks');
+    console.log(data);
+
+    useEffect(() => {
+        setTodoItems(data);
+    }, [data]);
+
     function addNewItem(e) {
         e.preventDefault();
-        // alert('Form is submitted');
         let newItem = {
             id: Date.now(),
             text: value,
             completed: false
         }
         setTodoItems([newItem, ...todoItems]);
+
+        apiRequest('POST', 'tasks/create', {
+            text: value
+        })
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
         setValue('');
     }
     function changeItem(id) {
@@ -49,7 +56,7 @@ export default function TodoApp() {
             </form>
             <ul>
                 {
-                    todoItems.map(item => {
+                    (todoItems || []).map(item => {
                         return (
                             <TodoItem 
                                 key={item.id} 
